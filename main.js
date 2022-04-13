@@ -12,7 +12,14 @@ const rl = readline.createInterface({
 
 
 const pigLatin = (word) => {
+let vowels = ['a', 'e', 'i', 'o', 'u'];
 
+// check if word first letter contains a vowel
+console.log(vowels.includes(word[0]))
+if(vowels.includes(word[0])) {
+  return word + 'yay'
+}
+// console.log(word[0].includes(vowels))
   // Your code here
 
 }
