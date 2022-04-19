@@ -4,25 +4,54 @@
 const assert = require('assert');
 // brings in the readline module to access the command line
 const readline = require('readline');
+const { string } = require('stylelint/lib/formatters');
 // use the readline module to print out to the command line
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
+const firstVowelIndex = (word) => {
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
+let wordArray = word.split("")
+let indexCounter = 0
+for (let i = 0; i < wordArray.length; i++) {
+  if(vowels.includes(wordArray[i])) {
+    return indexCounter
+  }else {
+    indexCounter++
+  }
 
+}
+}
 const pigLatin = (word) => {
-let vowels = ['a', 'e', 'i', 'o', 'u'];
+  word = word.toLowerCase().trim(" ")
+  let answerIndex = firstVowelIndex(word)
 
-// check if word first letter contains a vowel
-console.log(vowels.includes(word[0]))
-if(vowels.includes(word[0])) {
+if(answerIndex == 0) {
   return word + 'yay'
 }
-// console.log(word[0].includes(vowels))
-  // Your code here
-
+if(answerIndex == 1) {
+  let firstLetter = word.charAt(0)
+  let partialWord = word.slice(1)
+  return partialWord + firstLetter + 'ay'
 }
+if(answerIndex == 2) {
+  let firstLetter = word.charAt(0)
+  let secondLetter = word.charAt(1)
+  let partialWord = word.slice(2)
+  return partialWord + firstLetter + secondLetter + 'ay'
+}
+if(answerIndex == 3) {
+  let firstLetter = word.charAt(0)
+  let secondLetter = word.charAt(1)
+  let thirdLetter = word.charAt(2)
+  let partialWord = word.slice(3)
+  return partialWord + firstLetter + secondLetter + thirdLetter + 'ay'
+}
+
+
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
