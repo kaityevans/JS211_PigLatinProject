@@ -50,8 +50,29 @@ if(answerIndex == 3) {
   return partialWord + firstLetter + secondLetter + thirdLetter + 'ay'
 }
 
+}
+let label = document.createElement("label")
+document.body.appendChild(label)
+label.innerText = "Display"
+document.body.appendChild(input)
+let display = ""
 
+button.addEventListener('click', () => {
+  const li = document.createElement('li')
+  li.innerText = display
+  ul.appendChild(li)
+  
+  input.value = ""
+  display = ""
+})
 
+const ul = document.createElement("ul")
+document.body.appendChild(ul)
+// let display = ""
+// document.body.appendChild("pigLatin")
+// input.addEventListener('onclick', (event) => {
+//   display = event.target.value
+// })
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
