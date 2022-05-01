@@ -1,15 +1,15 @@
-'use strict';
+// 'use strict';
 
 // brings in the assert module for unit testing
-const assert = require('assert');
+// const assert = require('assert');
 // brings in the readline module to access the command line
-const readline = require('readline');
-const { string } = require('stylelint/lib/formatters');
+// const readline = require('readline');
+// const { string } = require('stylelint/lib/formatters');
 // use the readline module to print out to the command line
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
 const firstVowelIndex = (word) => {
   let vowels = ['a', 'e', 'i', 'o', 'u'];
@@ -25,21 +25,25 @@ for (let i = 0; i < wordArray.length; i++) {
 }
 }
 const pigLatin = (word) => {
+  word = document.getElementById("user-input").value
   word = word.toLowerCase().trim(" ")
   let answerIndex = firstVowelIndex(word)
 
 if(answerIndex == 0) {
-  return word + 'yay'
+  document.getElementById("display-element").innerHTML = word + 'yay'
+  // return word + 'yay'
 }
 if(answerIndex == 1) {
   let firstLetter = word.charAt(0)
   let partialWord = word.slice(1)
+  document.getElementById("display-element").innerHTML = partialWord + firstLetter + 'ay'
   return partialWord + firstLetter + 'ay'
 }
 if(answerIndex == 2) {
   let firstLetter = word.charAt(0)
   let secondLetter = word.charAt(1)
   let partialWord = word.slice(2)
+  document.getElementById("display-element").innerHTML = partialWord + firstLetter + secondLetter + 'ay'
   return partialWord + firstLetter + secondLetter + 'ay'
 }
 if(answerIndex == 3) {
@@ -47,32 +51,11 @@ if(answerIndex == 3) {
   let secondLetter = word.charAt(1)
   let thirdLetter = word.charAt(2)
   let partialWord = word.slice(3)
+  document.getElementById("display-element").innerHTML = partialWord + firstLetter + secondLetter + thirdLetter + 'ay'
   return partialWord + firstLetter + secondLetter + thirdLetter + 'ay'
 }
-
+   
 }
-let label = document.createElement("label")
-document.body.appendChild(label)
-label.innerText = "Display"
-document.body.appendChild(input)
-let display = ""
-
-button.addEventListener('click', () => {
-  const li = document.createElement('li')
-  li.innerText = display
-  ul.appendChild(li)
-  
-  input.value = ""
-  display = ""
-})
-
-const ul = document.createElement("ul")
-document.body.appendChild(ul)
-// let display = ""
-// document.body.appendChild("pigLatin")
-// input.addEventListener('onclick', (event) => {
-//   display = event.target.value
-// })
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
