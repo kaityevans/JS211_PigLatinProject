@@ -24,7 +24,8 @@ for (let i = 0; i < wordArray.length; i++) {
 
 }
 }
-const pigLatin = (word) => {
+const pigLatin = (event, word) => {
+  event.preventDefault()
   word = document.getElementById("user-input").value
   word = word.toLowerCase().trim(" ")
   let answerIndex = firstVowelIndex(word)
@@ -60,12 +61,12 @@ if(answerIndex == 3) {
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
-const getPrompt = () => {
-  rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
-    getPrompt();
-  });
-}
+// const getPrompt = () => {
+//   rl.question('word ', (answer) => {
+//     console.log( pigLatin(answer) );
+//     getPrompt();
+//   });
+// }
 
 // Unit Tests
 // to use them run the command: npm test main.js
@@ -92,7 +93,7 @@ if (typeof describe === 'function') {
   });
 } else {
 
-  getPrompt();
+  // getPrompt();
 
 }
 
